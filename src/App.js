@@ -2,6 +2,7 @@ import React from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Table from 'react-bootstrap/Table'
 let marked = require("marked");
 
 export default class App extends React.Component {
@@ -29,6 +30,16 @@ export default class App extends React.Component {
       height: "80vh",
       backgroundColor: "#F1ECDF",
       border: "black solid 0.4px",
+      marginLeft: "12px"
+    };
+
+    var marginTop = {
+      marginTop: "20px"
+    }
+
+    var tableStyle = {
+      width: "60vw",
+      marginTop: "12px",
       marginLeft: "12px"
     };
 
@@ -86,6 +97,75 @@ export default class App extends React.Component {
               }}>
             </div>
             </Col>
+          </Row>
+
+          {/* markdown cheatsheet */}
+          <Row style={marginTop}>
+            <h1 className="text-center">Markdown Cheatsheet</h1>
+          </Row>
+          <Row>
+            <Col></Col>
+            <Col>
+              <Table striped bordered style={tableStyle}>
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Markdown Syntax</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Heading</th>
+                    <th># H1 <br></br>## H2<br></br>### H3</th>
+                  </tr>
+                  <tr>
+                    <th>Bold</th>
+                    <th>**bold text**</th>
+                  </tr>
+                  <tr>
+                    <th>Italicized</th>
+                    <th>*italicized text*</th>
+                  </tr>
+                  <tr>
+                    <th>Strikethrough</th>
+                    <th>~strikethrough text~</th>
+                  </tr>
+                  <tr>
+                    <th>Blockquote</th>
+                    <th>> blockquote</th>
+                  </tr>
+                  <tr>
+                    <th>Ordered List</th>
+                    <th>1. First Item <br></br>2. Second Item <br></br>3. Third Item</th>
+                  </tr>
+                  <tr>
+                    <th>Unordered List</th>
+                    <th>- First Item <br></br>- Second Item <br></br>- Third Item</th>
+                  </tr>
+                  <tr>
+                    <th>Code</th>
+                    <th>`CODE HERE`</th>
+                  </tr>
+                  <tr>
+                    <th>Horizontal Rule</th>
+                    <th>---</th>
+                  </tr>
+                  <tr>
+                    <th>Link</th>
+                    <th>[title](https://www.example.com)</th>
+                  </tr>
+                  <tr>
+                    <th>Image</th>
+                    <th>![alt text](image.jpg)</th>
+                  </tr>
+                  <tr>
+                    <th>Footnote</th>
+                    <th>Here's a sentence with a footnote. [^1]<br></br>[^1]: This is the footnote.</th>
+                  </tr>
+                </tbody>
+              </Table>
+            </Col>
+            <Col></Col>
           </Row>
 
         </Container>
