@@ -12,4 +12,6 @@ The primary language involved in ReactJS is JSX, a combination of Javascript, HT
 The languages are meshed together and communicate together through the React framework.
 
 ## To Start
-stub
+1. Clone/Import the code in this repository
+2. Run Docker program
+3. $ docker-compose up -d --build
