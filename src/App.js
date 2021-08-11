@@ -17,6 +17,24 @@ export default class App extends React.Component {
     this.setState({ text });
   }
 
+  exportFileAsTxt() {
+    const element = document.createElement("a");
+    const file = new Blob([document.getElementById('myInput').value], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "markdown.txt";
+    document.body.appendChild(element);
+    element.click();
+  }
+
+  exportFileAsMD() {
+    const element = document.createElement("a");
+    const file = new Blob([document.getElementById('myInput').value], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "markdown.md";
+    document.body.appendChild(element);
+    element.click();
+  }
+
   render() {
     {/* styles */}
     var inputBoxStyle = {
@@ -78,12 +96,12 @@ export default class App extends React.Component {
           <Row>
             {/* Text Input Col */}
             <Col>
-              <div className="mark-input text-center" style={inputBoxStyle} value={this.state.text} 
+              <div className="mark-input text-center" style={inputBoxStyle} value={this.state.text}
                 onChange={(e) => {
                   this.updateText(e.target.value);
                 }}>
                   {console.log(this.state.text)}
-                <textarea className="input" style={inputBoxStyle}>
+                <textarea className="input" id="myInput" style={inputBoxStyle}>
 
                 </textarea>
               </div>
@@ -96,6 +114,23 @@ export default class App extends React.Component {
                 __html: marked(this.state.text),
               }}>
             </div>
+            </Col>
+          </Row>
+
+          {/* Text Box Row */}
+          <Row>
+            {/* Text Input Col */}
+            <Col>
+              <div className="text-center">
+                <button onClick={this.exportFileAsTxt}>Export as .txt</button>
+              </div>
+            </Col>
+
+            {/* Preview Col */}
+            <Col>
+              <div className="text-center">
+                <button onClick={this.exportFileAsMD}>Export as .md</button>
+              </div>
             </Col>
           </Row>
 
