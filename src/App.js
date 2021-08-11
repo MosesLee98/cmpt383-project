@@ -19,7 +19,7 @@ export default class App extends React.Component {
 
   exportFileAsTxt() {
     const element = document.createElement("a");
-    const file = new Blob([document.getElementById('myInput').value], {type: 'text/plain'});
+    const file = new Blob([document.getElementById('inputBox').value], {type: 'text/plain'});
     element.href = URL.createObjectURL(file);
     element.download = "markdown.txt";
     document.body.appendChild(element);
@@ -28,7 +28,7 @@ export default class App extends React.Component {
 
   exportFileAsMD() {
     const element = document.createElement("a");
-    const file = new Blob([document.getElementById('myInput').value], {type: 'text/plain'});
+    const file = new Blob([document.getElementById('inputBox').value], {type: 'text/plain'});
     element.href = URL.createObjectURL(file);
     element.download = "markdown.md";
     document.body.appendChild(element);
@@ -101,7 +101,7 @@ export default class App extends React.Component {
                   this.updateText(e.target.value);
                 }}>
                   {console.log(this.state.text)}
-                <textarea className="input" id="myInput" style={inputBoxStyle}>
+                <textarea className="input" id="inputBox" style={inputBoxStyle}>
 
                 </textarea>
               </div>
